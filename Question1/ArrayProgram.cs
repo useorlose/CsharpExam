@@ -1,45 +1,45 @@
-﻿using System;
 
-class ArrayProgram
+using System;
+
+namespace Array
 {
-   static void DisplayArray(string[] arr) => Console.WriteLine(string.Join(" ", arr));
+    class ArrayProgram
+    {
+        static int len;
+        static void DiaplayArray(int[] arr)
+        {
+            Console.Write("Forward: ");
+            for (int i = 0; i < len; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+            Console.Write("Backward: ");
+            for (int i = len - 1; i >= 0; i--)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        static void Main(string[] args)
+        {
+            int[] arr = new int[100];
+            Console.Write("Enter the No.of Elements: ");
+            try
+            {
+                len = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the Elements here:");
+                for (int i = 0; i < len; i++)
+                {
+                    arr[i] = int.Parse(Console.ReadLine());
+                }
 
-
-   static void ChangeArray(string[] arr) => Array.Reverse(arr);
-
-   static void ChangeArrayElements(string[] arr)
-   {
-
-       arr[0] = "Grandma";
-       arr[1] = "Mother";
-       arr[2] = "Sister";
-   }
-
-   static void Main()
-   {
-       try
-       {
-
-
-           string[] relations = { "Grandpa", "Grandma", "Father", "Mother", "Brother", "Sister", "Me" };
-
-           Console.WriteLine("Before");
-           DisplayArray(relations);
-           Console.WriteLine();
-
-
-           ChangeArray(relations);
-
-           Console.WriteLine("After:");
-           DisplayArray(relations);
-           Console.WriteLine();
-       }
-       catch(Exception e)
-       {
-           Console.WriteLine("There is some error plese check");
-       }
-
-
-
-   }
+                DiaplayArray(arr);
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input");
+            }
+        }
+    }
 }
